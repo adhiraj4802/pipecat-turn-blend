@@ -1,0 +1,42 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "a960cca50a32",
+  "model_run_id": "ours_blend__blend_insample_all_in_one_ONNX",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+    "language": "en"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "en",
+    "split": "validation",
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "en",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "en",
+  "split": "validation",
+  "language": "en",
+  "min_silence_span": 0.1,
+  "adapter_id": "ours/blend-insample-all-in-one-ONNX",
+  "adapter": "ours_adapter:OursBlend",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 1,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 11191,
+  "n_spans": 1250,
+  "n_event_rows": 0,
+  "total_audio_sec": 5040.900375000001,
+  "wall_clock_sec": 0.12395941298746038,
+  "audio_x_realtime": 40665.732867821294,
+  "skip_errors": false,
+  "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+  "display_name": "Ours: blend, as shipped (fitted on these turns) (all in one ONNX)"
+}

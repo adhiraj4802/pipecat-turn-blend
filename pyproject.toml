@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pipecat-turn-blend"
+version = "0.1.0"
+description = "turn-blend end-of-turn detection for Pipecat: Silero VAD, Smart Turn v3.2 and turn-1-mini in one local ONNX model"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "licenses/*"]
+authors = [{ name = "adhiraj4802" }]
+keywords = ["pipecat", "turn detection", "end of turn", "voice agents", "onnx"]
+dependencies = ["numpy", "onnxruntime", "pipecat-ai>=1.0"]
+
+[project.optional-dependencies]
+example = ["pipecat-ai[webrtc,runner,daily,deepgram,openai,silero]", "pipecat-ai-small-webrtc-prebuilt", "python-dotenv"]
+dev = ["pytest", "pytest-asyncio"]
+
+[project.urls]
+Repository = "https://github.com/adhiraj4802/pipecat-turn-blend"
+Benchmark = "https://github.com/adhiraj4802/pipecat-turn-blend/blob/main/benchmark/README.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pipecat_turn_blend"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

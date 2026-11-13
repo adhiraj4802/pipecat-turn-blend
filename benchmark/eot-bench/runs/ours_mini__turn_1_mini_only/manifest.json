@@ -1,0 +1,42 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "a960cca50a32",
+  "model_run_id": "ours_mini__turn_1_mini_only",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+    "language": "en"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "en",
+    "split": "validation",
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "en",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "en",
+  "split": "validation",
+  "language": "en",
+  "min_silence_span": 0.1,
+  "adapter_id": "ours/turn-1-mini-only",
+  "adapter": "ours_adapter:OursMini",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 1,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 11191,
+  "n_spans": 1250,
+  "n_event_rows": 0,
+  "total_audio_sec": 5040.900375000001,
+  "wall_clock_sec": 0.12318567300098948,
+  "audio_x_realtime": 40921.15789276493,
+  "skip_errors": false,
+  "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+  "display_name": "Our pipeline: turn-1-mini v1 only"
+}

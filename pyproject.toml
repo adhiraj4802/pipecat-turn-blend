@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pipecat-turn-blend"
-version = "0.1.0"
-description = "turn-blend end-of-turn detection for Pipecat: Silero VAD, Smart Turn v3.2 and turn-1-mini in one local ONNX model"
+version = "0.2.0"
+description = "turn-blend end-of-turn detection for Pipecat: Silero VAD, a distilled Whisper Base student and turn-1-mini in one local ONNX model"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"

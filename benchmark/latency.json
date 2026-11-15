@@ -2,129 +2,129 @@
   "cpu": "AMD Ryzen 5 5600H with Radeon Graphics",
   "onnxruntime": "1.32.0",
   "provider": "CPUExecutionProvider",
-  "audio_seconds": 90.0,
+  "audio_seconds": 119.4,
   "chunk_ms": 32,
   "config": {},
   "runs": [
     {
       "threads": 1,
       "all_chunks": {
-        "chunks": 2812,
-        "mean_ms": 13.23,
-        "p50_ms": 3.36,
-        "p95_ms": 81.57,
-        "p99_ms": 83.38,
-        "max_ms": 94.47
+        "chunks": 3731,
+        "mean_ms": 16.26,
+        "p50_ms": 3.15,
+        "p95_ms": 184.68,
+        "p99_ms": 186.26,
+        "max_ms": 193.27
       },
       "chunks_with_smart_turn": {
-        "chunks": 353,
-        "mean_ms": 81.74,
-        "p50_ms": 81.38,
-        "p95_ms": 83.87,
-        "p99_ms": 87.07,
-        "max_ms": 94.47
+        "chunks": 267,
+        "mean_ms": 185.28,
+        "p50_ms": 185.2,
+        "p95_ms": 187.0,
+        "p99_ms": 188.2,
+        "max_ms": 193.27
       },
       "other_chunks": {
-        "chunks": 2459,
-        "mean_ms": 3.4,
-        "p50_ms": 3.27,
-        "p95_ms": 4.18,
-        "p99_ms": 4.56,
-        "max_ms": 6.57
+        "chunks": 3464,
+        "mean_ms": 3.23,
+        "p50_ms": 3.12,
+        "p95_ms": 3.92,
+        "p99_ms": 4.35,
+        "max_ms": 4.71
       },
-      "turns_ended": 12,
-      "cpu_time_per_audio_second_ms": 413.5,
-      "x_real_time": 2.4
+      "turns_ended": 9,
+      "cpu_time_per_audio_second_ms": 508.0,
+      "x_real_time": 2.0
     },
     {
       "threads": 2,
       "all_chunks": {
-        "chunks": 2812,
-        "mean_ms": 8.35,
-        "p50_ms": 2.87,
-        "p95_ms": 46.19,
-        "p99_ms": 47.27,
-        "max_ms": 50.85
+        "chunks": 3731,
+        "mean_ms": 9.96,
+        "p50_ms": 2.64,
+        "p95_ms": 102.56,
+        "p99_ms": 104.63,
+        "max_ms": 117.63
       },
       "chunks_with_smart_turn": {
-        "chunks": 353,
-        "mean_ms": 46.24,
-        "p50_ms": 46.06,
-        "p95_ms": 47.83,
-        "p99_ms": 49.63,
-        "max_ms": 50.85
+        "chunks": 267,
+        "mean_ms": 103.36,
+        "p50_ms": 103.35,
+        "p95_ms": 105.43,
+        "p99_ms": 107.65,
+        "max_ms": 117.63
       },
       "other_chunks": {
-        "chunks": 2459,
-        "mean_ms": 2.91,
-        "p50_ms": 2.82,
-        "p95_ms": 3.69,
-        "p99_ms": 4.06,
-        "max_ms": 6.09
+        "chunks": 3464,
+        "mean_ms": 2.76,
+        "p50_ms": 2.61,
+        "p95_ms": 3.82,
+        "p99_ms": 4.28,
+        "max_ms": 4.78
       },
-      "turns_ended": 12,
-      "cpu_time_per_audio_second_ms": 261.0,
-      "x_real_time": 3.8
+      "turns_ended": 9,
+      "cpu_time_per_audio_second_ms": 311.1,
+      "x_real_time": 3.2
     },
     {
       "threads": 4,
       "all_chunks": {
-        "chunks": 2812,
-        "mean_ms": 6.61,
-        "p50_ms": 3.01,
-        "p95_ms": 31.63,
-        "p99_ms": 33.47,
-        "max_ms": 40.84
+        "chunks": 3731,
+        "mean_ms": 7.34,
+        "p50_ms": 2.56,
+        "p95_ms": 67.64,
+        "p99_ms": 69.27,
+        "max_ms": 77.65
       },
       "chunks_with_smart_turn": {
-        "chunks": 353,
-        "mean_ms": 31.54,
-        "p50_ms": 31.35,
-        "p95_ms": 33.76,
-        "p99_ms": 35.46,
-        "max_ms": 40.84
+        "chunks": 267,
+        "mean_ms": 68.21,
+        "p50_ms": 68.19,
+        "p95_ms": 70.18,
+        "p99_ms": 71.69,
+        "max_ms": 77.65
       },
       "other_chunks": {
-        "chunks": 2459,
-        "mean_ms": 3.03,
-        "p50_ms": 2.93,
-        "p95_ms": 3.97,
-        "p99_ms": 4.51,
-        "max_ms": 6.73
+        "chunks": 3464,
+        "mean_ms": 2.64,
+        "p50_ms": 2.54,
+        "p95_ms": 3.52,
+        "p99_ms": 4.03,
+        "max_ms": 5.69
       },
-      "turns_ended": 12,
-      "cpu_time_per_audio_second_ms": 206.5,
-      "x_real_time": 4.8
+      "turns_ended": 9,
+      "cpu_time_per_audio_second_ms": 229.2,
+      "x_real_time": 4.4
     },
     {
       "threads": 6,
       "all_chunks": {
-        "chunks": 2812,
-        "mean_ms": 6.15,
-        "p50_ms": 3.03,
-        "p95_ms": 27.6,
-        "p99_ms": 28.83,
-        "max_ms": 39.08
+        "chunks": 3731,
+        "mean_ms": 6.94,
+        "p50_ms": 2.71,
+        "p95_ms": 59.96,
+        "p99_ms": 61.4,
+        "max_ms": 64.34
       },
       "chunks_with_smart_turn": {
-        "chunks": 353,
-        "mean_ms": 27.53,
-        "p50_ms": 27.35,
-        "p95_ms": 29.26,
-        "p99_ms": 30.84,
-        "max_ms": 39.08
+        "chunks": 267,
+        "mean_ms": 60.53,
+        "p50_ms": 60.44,
+        "p95_ms": 62.1,
+        "p99_ms": 63.82,
+        "max_ms": 64.34
       },
       "other_chunks": {
-        "chunks": 2459,
-        "mean_ms": 3.08,
-        "p50_ms": 2.97,
-        "p95_ms": 4.12,
-        "p99_ms": 4.45,
-        "max_ms": 5.88
+        "chunks": 3464,
+        "mean_ms": 2.81,
+        "p50_ms": 2.68,
+        "p95_ms": 3.8,
+        "p99_ms": 4.42,
+        "max_ms": 5.47
       },
-      "turns_ended": 12,
-      "cpu_time_per_audio_second_ms": 192.2,
-      "x_real_time": 5.2
+      "turns_ended": 9,
+      "cpu_time_per_audio_second_ms": 216.8,
+      "x_real_time": 4.6
     }
   ]
 }

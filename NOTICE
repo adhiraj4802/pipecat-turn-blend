@@ -1,31 +1,47 @@
 turn-blend
 An all-in-one voice activity and end-of-turn detection model.
 
-turn-blend.onnx contains the unmodified weights of the following third-party models. Their graphs were
-converted to ONNX opset 18 where needed, renamed with a per-model prefix and joined into one graph. For
-Silero VAD the published 16 kHz graph was first specialised to a fixed input shape with its control flow
-folded away. No weights were retrained or altered.
+turn-blend.onnx (version 0.2.0) is one ONNX graph made of the parts below. The third-party graphs were
+converted to ONNX opset 18 where needed, renamed with a per-model prefix and joined into one graph.
 
-1. Silero VAD v6.2
+1. Silero VAD v6.2 (unmodified weights)
    Copyright (c) 2020-present Silero Team. MIT License (licenses/silero-vad-MIT.txt).
    https://github.com/snakers4/silero-vad
+   The published 16 kHz graph was specialised to a fixed input shape with its control flow folded away.
 
-2. Smart Turn v3.2
-   Copyright (c) 2024-2025, Daily. BSD 2-Clause License (licenses/smart-turn-BSD-2-Clause.txt).
-   https://github.com/pipecat-ai/smart-turn   https://huggingface.co/pipecat-ai/smart-turn-v3
-   Smart Turn is a fine-tune of the OpenAI Whisper Tiny encoder:
-   Copyright (c) 2022 OpenAI. MIT License (licenses/whisper-MIT.txt). https://github.com/openai/whisper
-
-3. turn-1-mini by p99lab
+2. turn-1-mini by p99lab (unmodified weights)
    Copyright 2026 p99lab. Apache License, Version 2.0 (licenses/turn-1-mini-Apache-2.0.txt).
    https://huggingface.co/p99lab/turn-1-mini
    Its NOTICE file is reproduced in full below, as section 4(d) of the Apache License requires.
    Changes made to the turn-1-mini ONNX graph (onnx/turn-1-mini.step.onnx): opset 17 to 18, tensor names
    prefixed with "mini/", embedded in a larger graph. Weights unchanged.
 
-The blend weights in this model were fitted on LiveKit's eot-bench data
+3. The student model (new in 0.2.0; weights trained for turn-blend)
+   An OpenAI Whisper Base encoder with a small pooling head, fine-tuned to reproduce the end-of-turn scores
+   of turn-1 by p99lab.
+   - Encoder initialised from Whisper Base. Copyright (c) 2022 OpenAI. MIT License (licenses/whisper-MIT.txt).
+     https://github.com/openai/whisper   https://huggingface.co/openai/whisper-base
+   - Training targets: scores produced by turn-1 by p99lab. Copyright 2026 p99lab. Apache License, Version 2.0
+     (same text as licenses/turn-1-mini-Apache-2.0.txt). https://huggingface.co/p99lab/turn-1
+     No turn-1 weights are inside turn-blend.onnx. Because the student was trained on turn-1's outputs, the
+     turn-1 NOTICE file is kept with this model (licenses/turn-1-NOTICE.txt) and reproduced below.
+   - Training audio (processed for training, not redistributed here), all CC BY 4.0
+     (https://creativecommons.org/licenses/by/4.0/); their authors do not endorse turn-blend:
+       HarperValleyBank. C. Wu, M. Nafziger, A. Scodary, A. Maas, "HarperValleyBank: A Domain-Specific Spoken
+         Dialog Corpus", arXiv:2010.13929. https://github.com/cricketclub/gridspace-stanford-harper-valley
+       AMI Meeting Corpus. J. Carletta et al., "The AMI Meeting Corpus: A Pre-announcement", MLMI 2005.
+         https://groups.inf.ed.ac.uk/ami/corpus/
+       Smart Turn training data v3.2 (English part), Pipecat / Daily.
+         https://huggingface.co/datasets/pipecat-ai/smart-turn-data-v3.2-train
+
+Versions up to 0.1.0 contained Smart Turn v3.2 (Copyright (c) 2024-2025, Daily, BSD 2-Clause). Version 0.2.0
+does not contain Smart Turn weights.
+
+The blend weights in this model were fitted on held-out windows of HarperValleyBank and AMI. The default
+commit threshold was chosen with LiveKit's eot-bench data in view. The model is evaluated on that data
 (https://huggingface.co/datasets/livekit/eot-bench-data, CC BY 4.0 per its dataset card;
-harness https://github.com/livekit/eot-bench, Apache-2.0).
+harness https://github.com/livekit/eot-bench, Apache-2.0); it was not trained on it and its blend weights
+were not fitted on it.
 
 turn-blend is not affiliated with or endorsed by Silero, Daily, Pipecat, p99lab, OpenAI or LiveKit. The names
 of the component models are used only to identify them.
@@ -61,6 +77,53 @@ ICSI Meeting Corpus. A. Janin et al., "The ICSI Meeting Corpus", ICASSP 2003. ht
 
 otoSpeech full-duplex (processed 141 h; task-oriented 20 h), otoearth. CC BY 4.0.
   https://huggingface.co/otoearth
+
+Evaluation (never trained or tuned on)
+eot-bench (code), LiveKit. Apache-2.0. https://github.com/livekit/eot-bench
+livekit/eot-bench-data, LiveKit. CC BY 4.0 per its dataset card. https://huggingface.co/datasets/livekit/eot-bench-data
+
+----------------------------------------------------------------------------------------------------
+NOTICE file of turn-1 (verbatim)
+----------------------------------------------------------------------------------------------------
+
+p99lab turn-1, an end-of-turn detection model
+Copyright 2026 p99lab (https://p99lab.com)
+
+This product includes turn-1, an end-of-turn detection model developed by p99lab
+(https://huggingface.co/p99lab/turn-1). Redistributed copies, and models or products that include or are
+derived from it, must retain this notice, as section 4(d) of the Apache License, Version 2.0 requires.
+The names "p99lab" and "turn-1" may not be used to name or endorse derived models or products without
+permission (section 6).
+
+The code in this repository and the weight files "turn-1-head.safetensors" and "turn-1-lora.safetensors" are released
+under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party models and code
+turn-1 runs on the two models below. They are downloaded from their own repositories at run time, are not
+redistributed here, and stay under their own licence. Their authors do not endorse p99lab or this model.
+
+Qwen3-ASR-1.7B, Alibaba Cloud Qwen team. Apache License 2.0. https://huggingface.co/Qwen/Qwen3-ASR-1.7B
+Qwen3-ASR-0.6B, Alibaba Cloud Qwen team. Apache License 2.0. https://huggingface.co/Qwen/Qwen3-ASR-0.6B
+Qwen3-ASR code: https://github.com/QwenLM/Qwen3-ASR and the PyPI package qwen-asr 0.0.6. Apache License 2.0.
+  p99turn1/turn1.py contains a batched re-implementation of the forward pass of the Qwen3-ASR audio encoder,
+  derived from qwen_asr/core/transformers_backend/modeling_qwen3_asr.py. Changes: batching over windows of at
+  most one attention block; hidden states returned at three depths.
+
+Third-party data credits
+The datasets below are licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), which asks for credit.
+The model was trained in part on them. Their audio was processed for training and is not redistributed here.
+Their authors do not endorse p99lab or this model.
+
+HarperValleyBank. C. Wu, M. Nafziger, A. Scodary, A. Maas, "HarperValleyBank: A Domain-Specific Spoken Dialog
+  Corpus", arXiv:2010.13929. https://github.com/cricketclub/gridspace-stanford-harper-valley
+LibriTTS-R. Y. Koizumi et al., "LibriTTS-R: A Restored Multi-Speaker Text-to-Speech Corpus", Interspeech 2023;
+  H. Zen et al., "LibriTTS: A Corpus Derived from LibriSpeech for Text-to-Speech", Interspeech 2019.
+  https://www.openslr.org/141/
+CSTR VCTK Corpus (version 0.92). J. Yamagishi, C. Veaux, K. MacDonald, University of Edinburgh, CSTR, 2019.
+  https://doi.org/10.7488/ds/2645
+EVI. G. Spithourakis et al., "EVI: Multilingual Spoken Dialogue Tasks and Dataset for Knowledge-Based Enrolment,
+  Verification, and Identification", Findings of NAACL 2022 (arXiv:2204.13496). PolyAI. https://github.com/PolyAI-LDN/evi-paper
+ICSI Meeting Corpus. A. Janin et al., "The ICSI Meeting Corpus", ICASSP 2003. https://groups.inf.ed.ac.uk/ami/icsi/
 
 Evaluation (never trained or tuned on)
 eot-bench (code), LiveKit. Apache-2.0. https://github.com/livekit/eot-bench

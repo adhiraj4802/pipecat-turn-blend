@@ -137,7 +137,8 @@ class TurnBlend:
         speech       1.0 if the chunk counts as speech
         in_turn      1.0 while a user turn is open (after this chunk)
         silence_ms   silence since the last speech chunk
-        smart_turn   Smart Turn probability, or -1 if it was not scored on this chunk
+        smart_turn   the student model's end-of-turn probability, or -1 if it was not scored on this chunk
+                     (the name is kept from 0.1.0, where this slot held Smart Turn)
         mini         turn-1-mini probability
         blend        blended end-of-turn probability, or -1 if not scored on this chunk
         tentative    1.0 while a tentative end of turn is pending

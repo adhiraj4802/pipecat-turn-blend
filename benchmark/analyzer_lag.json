@@ -1,13 +1,13 @@
 {
   "threads": 4,
-  "audio_seconds": 90.0,
-  "turns": 13,
-  "committed_by_blend": 13,
-  "silence_ms_mean": 719,
-  "detect_ms_mean": 751,
+  "audio_seconds": 119.4,
+  "turns": 9,
+  "committed_by_blend": 8,
+  "silence_ms_mean": 700,
+  "detect_ms_mean": 773,
   "added_delay_ms": {
-    "mean": 32.1,
-    "p50": 32.0,
-    "max": 37.0
+    "mean": 72.2,
+    "p50": 70.0,
+    "max": 86.0
   }
 }

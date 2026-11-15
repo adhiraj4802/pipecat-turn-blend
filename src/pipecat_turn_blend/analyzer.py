@@ -7,6 +7,7 @@ silence timeout runs out). Pipecat then waits for the final transcript and start
 Written against pipecat-ai 1.16.
 """
 
+import math
 import queue
 import threading
 import time
@@ -34,7 +35,8 @@ class TurnBlendParams(BaseTurnParams):
 class TurnBlendAnalyzer(BaseTurnAnalyzer):
     """End-of-turn detection with turn-blend, a single local ONNX model.
 
-    The model holds Silero VAD, Smart Turn v3.2, turn-1-mini and a logistic blend of the two scores with the
+    The model holds Silero VAD, a student model (a Whisper Base encoder trained on the scores of p99lab's
+    turn-1), turn-1-mini and a logistic blend of the two scores with the
     elapsed silence. It runs on the CPU, needs no API key and takes 16 kHz audio. English only.
 
     Example::
@@ -54,7 +56,9 @@ class TurnBlendAnalyzer(BaseTurnAnalyzer):
 
         Args:
             model_path: Path to turn-blend.onnx. If omitted, the model is downloaded on first use and cached.
-            threads: CPU threads for the model (2 or more for real-time use).
+            threads: CPU threads for the model (2 or more for real-time use). If the student model cannot run
+                every ``score_every_chunks`` chunks in real time with these threads, the analyzer runs it less
+                often; ``analyzer.score_every_chunks`` holds the interval in use.
             on_end_of_turn: Optional callback with the result of each ended turn. Called on the worker thread.
             **config: Any turn-blend setting, e.g. ``blend_threshold=0.9``. ``analyzer.detector.describe()``
                 lists them all.
@@ -68,6 +72,7 @@ class TurnBlendAnalyzer(BaseTurnAnalyzer):
         self._lock = threading.Lock()
         self._complete: TurnMetricsData | None = None
         self._warned = False
+        self.score_every_chunks = self.detector.config["score_every_chunks"]   # the interval in use (see _worker)
         self._thread = threading.Thread(target=self._worker, name="turn-blend", daemon=True)
         self._thread.start()
 
@@ -141,6 +146,12 @@ class TurnBlendAnalyzer(BaseTurnAnalyzer):
     # ---------------------------------------------------------------- worker thread ---
     def _worker(self):
         was_in_turn, last = False, None
+        # Keeping up with real time: the student model is the expensive part and runs on every
+        # `score_every_chunks`-th chunk of a pause. If one run takes longer than that many chunks of audio, the
+        # worker would fall behind, so the interval is widened to fit the measured cost on this machine.
+        every_index = self.detector.names.index("score_every_chunks")
+        chunk_ms = 1000.0 * self.detector.chunk_samples / self.detector.sample_rate
+        cost_ms = 0.0                                  # running average of one student run
         while True:
             chunk, arrived = self._q.get()
             if chunk is None:
@@ -151,7 +162,18 @@ class TurnBlendAnalyzer(BaseTurnAnalyzer):
                     self.detector.close_turn()
                     was_in_turn = False
                 continue
+            every = max(self.detector.config["score_every_chunks"], math.ceil(1.2 * cost_ms / chunk_ms))
+            if self._q.qsize() >= 8:                   # a quarter of a second behind: skip the student and catch up
+                every = 1e9
+            elif every != self.score_every_chunks:
+                self.score_every_chunks = every
+                logger.debug(f"turn-blend: the student model runs every {every:g} chunks ({cost_ms:.0f} ms per run)")
+            self.detector._config[every_index] = every
+            started = time.perf_counter()
             last = r = self.detector(chunk)
+            if r["smart_turn"] >= 0:
+                took = (time.perf_counter() - started) * 1000
+                cost_ms = took if not cost_ms else 0.8 * cost_ms + 0.2 * took
             if r["in_turn"] and not was_in_turn:
                 with self._lock:
                     self._complete = None          # a verdict from before this speech is stale

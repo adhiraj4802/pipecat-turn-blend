@@ -10,7 +10,7 @@ Run:
     python examples/turn_blend_bot.py -t webrtc    # no Daily account needed; open http://localhost:7860, press Connect
     python examples/turn_blend_bot.py -t daily     # creates a Daily room; open http://localhost:7860 to join it
 
-The model (56 MB) is downloaded on the first run. Any setting can be changed in .env as TURN_BLEND_<SETTING>.
+The model (105 MB) is downloaded on the first run. Any setting can be changed in .env as TURN_BLEND_<SETTING>.
 
 Each turn logs how long turn-blend took to decide and the full turn latency (you stop speaking -> the bot
 starts speaking). The only turn-blend specific lines are the `TurnBlendAnalyzer` ones below.

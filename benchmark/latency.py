@@ -6,7 +6,7 @@ Measure how long turn-blend takes to process each 32 ms chunk on this machine.
 
 A chunk is 32 ms of audio, so the model keeps up in real time while the time per chunk stays under 32 ms.
 Most chunks run only Silero VAD and turn-1-mini. While a turn is open, every `score_every_chunks`-th chunk
-also runs Smart Turn, which is the expensive part; those chunks are reported separately.
+also runs the student model, which is the expensive part; those chunks are reported separately.
 """
 
 import argparse
@@ -76,7 +76,7 @@ def main():
     report = {"cpu": cpu_name(), "onnxruntime": ort.__version__, "provider": "CPUExecutionProvider",
               "audio_seconds": round(len(audio) / 16000, 1), "chunk_ms": 32, "config": config, "runs": []}
     print(f"{report['cpu']}, onnxruntime {ort.__version__}, {report['audio_seconds']} s of audio\n")
-    print("threads   all chunks: mean / p50 / p99 / max      with Smart Turn: p50 / p99      others: p50     x real time")
+    print("threads   all chunks: mean / p50 / p99 / max      with the student: p50 / p99      others: p50     x real time")
     for threads in args.threads:
         r = measure(audio, threads, **config)
         report["runs"].append(r)

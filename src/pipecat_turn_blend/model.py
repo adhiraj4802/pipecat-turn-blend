@@ -1,6 +1,6 @@
 """Locates turn-blend.onnx, downloading it on first use.
 
-The model (56 MB) is published as a release asset of this repository rather than inside the Python package.
+The model (105 MB) is published as a release asset of this repository rather than inside the Python package.
 It is downloaded once, checked against its SHA-256 and kept in the user's cache directory.
 """
 
@@ -10,9 +10,9 @@ import tempfile
 import urllib.request
 from pathlib import Path
 
-MODEL_VERSION = "0.1.0"
+MODEL_VERSION = "0.2.0"
 MODEL_URL = f"https://github.com/adhiraj4802/pipecat-turn-blend/releases/download/v{MODEL_VERSION}/turn-blend.onnx"
-MODEL_SHA256 = "f755abf26761688d22e0cd5f05ced041d5d2b155da50e54eb7330a64ef29474c"
+MODEL_SHA256 = "fc7699b0f4d2a22873c8adf4d26b5f1a4a665a534f5cc50742d40f53c1c7ccea"
 
 
 def _sha256(path: Path) -> str:

@@ -1,0 +1,42 @@
+p99lab turn-1, an end-of-turn detection model
+Copyright 2026 p99lab (https://p99lab.com)
+
+This product includes turn-1, an end-of-turn detection model developed by p99lab
+(https://huggingface.co/p99lab/turn-1). Redistributed copies, and models or products that include or are
+derived from it, must retain this notice, as section 4(d) of the Apache License, Version 2.0 requires.
+The names "p99lab" and "turn-1" may not be used to name or endorse derived models or products without
+permission (section 6).
+
+The code in this repository and the weight files "turn-1-head.safetensors" and "turn-1-lora.safetensors" are released
+under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party models and code
+turn-1 runs on the two models below. They are downloaded from their own repositories at run time, are not
+redistributed here, and stay under their own licence. Their authors do not endorse p99lab or this model.
+
+Qwen3-ASR-1.7B, Alibaba Cloud Qwen team. Apache License 2.0. https://huggingface.co/Qwen/Qwen3-ASR-1.7B
+Qwen3-ASR-0.6B, Alibaba Cloud Qwen team. Apache License 2.0. https://huggingface.co/Qwen/Qwen3-ASR-0.6B
+Qwen3-ASR code: https://github.com/QwenLM/Qwen3-ASR and the PyPI package qwen-asr 0.0.6. Apache License 2.0.
+  p99turn1/turn1.py contains a batched re-implementation of the forward pass of the Qwen3-ASR audio encoder,
+  derived from qwen_asr/core/transformers_backend/modeling_qwen3_asr.py. Changes: batching over windows of at
+  most one attention block; hidden states returned at three depths.
+
+Third-party data credits
+The datasets below are licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), which asks for credit.
+The model was trained in part on them. Their audio was processed for training and is not redistributed here.
+Their authors do not endorse p99lab or this model.
+
+HarperValleyBank. C. Wu, M. Nafziger, A. Scodary, A. Maas, "HarperValleyBank: A Domain-Specific Spoken Dialog
+  Corpus", arXiv:2010.13929. https://github.com/cricketclub/gridspace-stanford-harper-valley
+LibriTTS-R. Y. Koizumi et al., "LibriTTS-R: A Restored Multi-Speaker Text-to-Speech Corpus", Interspeech 2023;
+  H. Zen et al., "LibriTTS: A Corpus Derived from LibriSpeech for Text-to-Speech", Interspeech 2019.
+  https://www.openslr.org/141/
+CSTR VCTK Corpus (version 0.92). J. Yamagishi, C. Veaux, K. MacDonald, University of Edinburgh, CSTR, 2019.
+  https://doi.org/10.7488/ds/2645
+EVI. G. Spithourakis et al., "EVI: Multilingual Spoken Dialogue Tasks and Dataset for Knowledge-Based Enrolment,
+  Verification, and Identification", Findings of NAACL 2022 (arXiv:2204.13496). PolyAI. https://github.com/PolyAI-LDN/evi-paper
+ICSI Meeting Corpus. A. Janin et al., "The ICSI Meeting Corpus", ICASSP 2003. https://groups.inf.ed.ac.uk/ami/icsi/
+
+Evaluation (never trained or tuned on)
+eot-bench (code), LiveKit. Apache-2.0. https://github.com/livekit/eot-bench
+livekit/eot-bench-data, LiveKit. CC BY 4.0 per its dataset card. https://huggingface.co/datasets/livekit/eot-bench-data

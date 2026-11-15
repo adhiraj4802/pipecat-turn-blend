@@ -22,93 +22,94 @@ everywhere. "n/a" means the model cannot reach that latency budget at all.
 
 | Model | False cut-offs @ 300 ms | False cut-offs @ 600 ms | Latency @ 5% cut-offs | Latency @ 10% cut-offs |
 |---|---:|---:|---:|---:|
-| LiveKit Turn Detector v1.1 | 13.5% | 7.3% | 824 ms | 417 ms |
+| LiveKit Turn Detector v1.1 | 13.4% | 7.5% | 810 ms | 414 ms |
 | p99lab turn-1 (GPU) | 19.3% | 8.7% | 912 ms | 529 ms |
 | Deepgram Flux | 22.3% | 13.5% | 1409 ms | 826 ms |
 | **turn-blend 0.2.0** | **23.5%** | **9.6%** | **995 ms** | **599 ms** |
-| JoinIn AI Baton | 24.4% | 13.4% | 1078 ms | 734 ms |
-| LiveKit Turn Detector v1.1-mini | 26.0% | 13.6% | 1183 ms | 776 ms |
+| LiveKit Turn Detector v1.1-mini | 25.6% | 12.9% | 1124 ms | 738 ms |
+| JoinIn AI Baton | 26.1% | 13.6% | 1111 ms | 749 ms |
 | turn-blend 0.1.0 | 32.5% | 14.4% | 1114 ms | 761 ms |
-| ultraVAD | 38.9% | 20.2% | 1350 ms | 896 ms |
 | p99lab turn-1-mini | 39.6% | 18.7% | 1169 ms | 862 ms |
-| Smart Turn (audio) | 44.4% | 22.0% | 1404 ms | 932 ms |
-| VAP | 63.5% | 29.0% | 1724 ms | 1048 ms |
+| ultraVAD | 39.7% | 20.8% | 1321 ms | 891 ms |
+| Smart Turn v3.2 | 46.8% | 22.9% | 1384 ms | 956 ms |
+| VAP (silent agent) | 63.5% | 29.0% | 1724 ms | 1048 ms |
 | Gradium | 79.3% | 23.2% | 1112 ms | 785 ms |
 | Soniox | n/a | 13.3% | 2000 ms | 789 ms |
-| AssemblyAI Universal Streaming | n/a | 21.7% | 1381 ms | 906 ms |
+| AssemblyAI | n/a | 21.7% | 1381 ms | 906 ms |
 | Cartesia Ink 2 | n/a | n/a | 1027 ms | 968 ms |
-| OpenAI Realtime 2 (semantic VAD) | n/a | n/a | 2000 ms | 959 ms |
+| OpenAI GPT Realtime 2 | n/a | n/a | 2000 ms | 959 ms |
 
 #### General (400 turns)
 
 | Model | False cut-offs @ 300 ms | False cut-offs @ 600 ms | Latency @ 5% cut-offs | Latency @ 10% cut-offs |
 |---|---:|---:|---:|---:|
+| LiveKit Turn Detector v1.1 | 7.8% | 4.1% | 462 ms | 250 ms |
 | p99lab turn-1 (GPU) | 10.6% | 4.5% | 553 ms | 321 ms |
-| LiveKit Turn Detector v1.1 | 11.2% | 6.0% | 708 ms | 331 ms |
-| JoinIn AI Baton | 12.9% | 5.8% | 665 ms | 367 ms |
+| JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | **turn-blend 0.2.0** | **13.0%** | **4.1%** | **512 ms** | **384 ms** |
-| LiveKit Turn Detector v1.1-mini | 18.4% | 10.1% | 1030 ms | 610 ms |
+| LiveKit Turn Detector v1.1-mini | 17.7% | 8.2% | 812 ms | 504 ms |
 | turn-blend 0.1.0 | 19.1% | 7.1% | 722 ms | 495 ms |
 | p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 580 ms |
-| ultraVAD | 27.5% | 12.3% | 955 ms | 664 ms |
-| Smart Turn (audio) | 32.8% | 14.2% | 1045 ms | 723 ms |
-| VAP | 47.0% | 14.6% | 1131 ms | 749 ms |
-| AssemblyAI Universal Streaming | 49.4% | 14.6% | 1049 ms | 713 ms |
+| ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
+| Smart Turn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
+| VAP (silent agent) | 47.0% | 14.6% | 1131 ms | 749 ms |
+| AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
 | Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | Soniox | n/a | 5.5% | 647 ms | 512 ms |
 | Cartesia Ink 2 | n/a | n/a | 1056 ms | 911 ms |
-| OpenAI Realtime 2 (semantic VAD) | n/a | n/a | 1143 ms | 824 ms |
+| OpenAI GPT Realtime 2 | n/a | n/a | 1143 ms | 824 ms |
 
 #### Accented (800 turns)
 
 | Model | False cut-offs @ 300 ms | False cut-offs @ 600 ms | Latency @ 5% cut-offs | Latency @ 10% cut-offs |
 |---|---:|---:|---:|---:|
-| LiveKit Turn Detector v1.1 | 13.3% | 5.8% | 701 ms | 367 ms |
+| LiveKit Turn Detector v1.1 | 12.4% | 6.4% | 700 ms | 360 ms |
 | p99lab turn-1 (GPU) | 19.1% | 8.5% | 878 ms | 520 ms |
-| JoinIn AI Baton | 22.6% | 12.4% | 981 ms | 658 ms |
 | Deepgram Flux | 22.6% | 12.4% | 1084 ms | 734 ms |
 | **turn-blend 0.2.0** | **23.7%** | **9.8%** | **934 ms** | **588 ms** |
-| LiveKit Turn Detector v1.1-mini | 26.4% | 10.7% | 1025 ms | 681 ms |
+| LiveKit Turn Detector v1.1-mini | 24.3% | 11.2% | 999 ms | 676 ms |
+| JoinIn AI Baton | 24.9% | 12.2% | 958 ms | 682 ms |
 | turn-blend 0.1.0 | 34.8% | 14.1% | 1012 ms | 737 ms |
 | p99lab turn-1-mini | 38.2% | 17.6% | 1027 ms | 817 ms |
-| ultraVAD | 39.9% | 20.8% | 1134 ms | 884 ms |
-| Smart Turn (audio) | 48.5% | 22.6% | 1239 ms | 924 ms |
-| VAP | 68.5% | 33.0% | 1396 ms | 1011 ms |
+| ultraVAD | 40.4% | 21.5% | 1165 ms | 904 ms |
+| Smart Turn v3.2 | 51.3% | 24.3% | 1224 ms | 945 ms |
+| VAP (silent agent) | 68.5% | 33.0% | 1396 ms | 1011 ms |
 | Gradium | 89.5% | 23.4% | 941 ms | 737 ms |
 | Soniox | n/a | 12.5% | 1154 ms | 762 ms |
-| AssemblyAI Universal Streaming | n/a | 22.8% | 1232 ms | 898 ms |
+| AssemblyAI | n/a | 22.8% | 1232 ms | 898 ms |
 | Cartesia Ink 2 | n/a | n/a | 980 ms | 964 ms |
-| OpenAI Realtime 2 (semantic VAD) | n/a | n/a | 1500 ms | 891 ms |
+| OpenAI GPT Realtime 2 | n/a | n/a | 1500 ms | 891 ms |
 
 #### Short turns (1,088 turns)
 
 | Model | False cut-offs @ 300 ms | False cut-offs @ 600 ms | Latency @ 5% cut-offs | Latency @ 10% cut-offs |
 |---|---:|---:|---:|---:|
-| LiveKit Turn Detector v1.1 | 16.0% | 9.6% | 1082 ms | 565 ms |
+| LiveKit Turn Detector v1.1 | 19.5% | 10.8% | 1096 ms | 635 ms |
 | p99lab turn-1 (GPU) | 28.3% | 13.2% | 1181 ms | 759 ms |
-| LiveKit Turn Detector v1.1-mini | 32.5% | 17.6% | 1235 ms | 916 ms |
 | Deepgram Flux | 33.3% | 20.0% | 1995 ms | 1167 ms |
+| LiveKit Turn Detector v1.1-mini | 35.1% | 17.6% | 1237 ms | 893 ms |
 | **turn-blend 0.2.0** | **36.0%** | **16.7%** | **1428 ms** | **919 ms** |
-| JoinIn AI Baton | 41.7% | 23.3% | 1692 ms | 1043 ms |
 | turn-blend 0.1.0 | 44.1% | 21.5% | 1808 ms | 1022 ms |
-| ultraVAD | 51.5% | 27.9% | 1862 ms | 1209 ms |
-| Smart Turn (audio) | 51.7% | 26.1% | 1856 ms | 1120 ms |
+| JoinIn AI Baton | 44.5% | 24.8% | 1689 ms | 1112 ms |
+| ultraVAD | 52.8% | 28.7% | 1876 ms | 1152 ms |
+| Smart Turn v3.2 | 54.8% | 27.4% | 1761 ms | 1195 ms |
 | p99lab turn-1-mini | 60.7% | 26.5% | 1600 ms | 1098 ms |
-| VAP | 78.7% | 39.3% | 2256 ms | 1403 ms |
+| VAP (silent agent) | 78.7% | 39.3% | 2256 ms | 1403 ms |
 | Gradium | 90.6% | 35.7% | 1525 ms | 1017 ms |
 | Soniox | n/a | 23.5% | 2500 ms | 1090 ms |
-| AssemblyAI Universal Streaming | n/a | 26.8% | 1918 ms | 1064 ms |
+| AssemblyAI | n/a | 26.8% | 1918 ms | 1064 ms |
 | Cartesia Ink 2 | n/a | n/a | 2500 ms | 979 ms |
-| OpenAI Realtime 2 (semantic VAD) | n/a | n/a | 2500 ms | 1500 ms |
+| OpenAI GPT Realtime 2 | n/a | n/a | 2500 ms | 1500 ms |
 
 ### How to read this
 
-- **Against LiveKit's v1.1-mini**, turn-blend 0.2.0 makes fewer false cut-offs overall (23.5% against 26.0% at
-  300 ms) and on general (13.0% against 18.4%) and accented speech (23.7% against 26.4%), and it is faster at
-  the 5% cut-off budget overall (995 ms against 1183 ms).
-- **It is behind v1.1-mini on short turns** (36.0% against 32.5%, and 1428 ms against 1235 ms). Short answers
-  such as "yes" or "no thanks" are its weakest case.
+- **Against LiveKit's v1.1-mini**, turn-blend 0.2.0 makes fewer false cut-offs overall (23.5% against 25.6% at
+  300 ms) and on general speech (13.0% against 17.7%), and it is faster at the 5% cut-off budget overall
+  (995 ms against 1124 ms) and on general speech (512 ms against 812 ms).
+- **On accented speech the two are level** (23.7% against 24.3%; a difference this small is within noise).
+- **On short turns it is level on cut-offs and slower** (36.0% against 35.1%, and 1428 ms against 1237 ms at
+  the 5% budget). Short answers such as "yes" or "no thanks" are its weakest case.
 - **It is behind** LiveKit's full v1.1 model, p99lab's turn-1 (which needs a GPU) and, at the 300 ms budget,
   Deepgram Flux.
 - **Against 0.1.0** every figure in every cohort improves.
@@ -119,8 +120,13 @@ everywhere. "n/a" means the model cannot reach that latency budget at all.
   call, and its blend was read at each decision point ([eot-bench-v1.1/score.py](eot-bench-v1.1/score.py)).
   A decision point where the model had no open turn counts as probability 0.
 - **Other rows were not re-run.** They are computed with the same harness code from the predictions committed
-  in the eot-bench repository ([eot-bench-v1.1/evaluate.py](eot-bench-v1.1/evaluate.py)). The display names
-  are mine; `results.json` keeps the repository's adapter names.
+  in the eot-bench repository ([eot-bench-v1.1/evaluate.py](eot-bench-v1.1/evaluate.py)) and match the tables
+  in that repository's own report. `results.json` keeps the repository's adapter names.
+- **Two scoring modes, as in the eot-bench report.** Models that declare a score point (LiveKit's two
+  detectors, Baton, Smart Turn and ultraVAD score once, 0.2 s into the silence) are evaluated at that point.
+  The others, turn-blend included, are evaluated on every prediction they make during the silence. Scored
+  on every prediction instead, LiveKit's v1.1-mini would get 26.0% overall and 32.5% on short turns, so the
+  comparison with it does not hinge on the mode overall, but the short-turn order does.
 - **Local run.** Nothing was submitted to the public leaderboard.
 
 ### Limits
@@ -133,8 +139,8 @@ everywhere. "n/a" means the model cannot reach that latency budget at all.
   compared on it before this one was picked, and the default commit threshold was chosen on it. That is a
   milder form of fitting, but it is not none.
 - **One training run.** The student was trained once. Differences of about a point between models are within
-  run-to-run noise; the gaps to v1.1-mini on general and overall are larger than that, the gap on accented
-  speech is not much larger.
+  run-to-run noise; the gaps to v1.1-mini overall and on general speech are larger than that, the
+  differences on accented speech and on short-turn cut-offs are not.
 - **19 short turns are never opened.** In 19 of the 1,088 short turns the model's VAD never opens a turn, so
   it cannot end them. They count against it.
 - **The harness picks the policy.** As for every row, threshold, minimum silence and timeout are chosen by

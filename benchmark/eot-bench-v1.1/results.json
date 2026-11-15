@@ -23,7 +23,8 @@
    "cut@600": 9.6,
    "lat@5pct": 995,
    "lat@10pct": 599
-  }
+  },
+  "score_point_s": null
  },
  "turn-blend 0.1.0": {
   "general": {
@@ -49,7 +50,8 @@
    "cut@600": 14.4,
    "lat@5pct": 1114,
    "lat@10pct": 761
-  }
+  },
+  "score_point_s": null
  },
  "assemblyai_streaming_adapter__universal_streaming_multilingual": {
   "general": {
@@ -75,33 +77,35 @@
    "cut@600": 21.7,
    "lat@5pct": 1381,
    "lat@10pct": 906
-  }
+  },
+  "score_point_s": null
  },
  "baton_adapter__baton_v1": {
   "general": {
-   "cut@300": 12.9,
-   "cut@600": 5.8,
-   "lat@5pct": 665,
-   "lat@10pct": 367
+   "cut@300": 12.3,
+   "cut@600": 4.8,
+   "lat@5pct": 577,
+   "lat@10pct": 350
   },
   "accented": {
-   "cut@300": 22.6,
-   "cut@600": 12.4,
-   "lat@5pct": 981,
-   "lat@10pct": 658
+   "cut@300": 24.9,
+   "cut@600": 12.2,
+   "lat@5pct": 958,
+   "lat@10pct": 682
   },
   "short_turns": {
-   "cut@300": 41.7,
-   "cut@600": 23.3,
-   "lat@5pct": 1692,
-   "lat@10pct": 1043
+   "cut@300": 44.5,
+   "cut@600": 24.8,
+   "lat@5pct": 1689,
+   "lat@10pct": 1112
   },
   "pooled": {
-   "cut@300": 24.4,
-   "cut@600": 13.4,
-   "lat@5pct": 1078,
-   "lat@10pct": 734
-  }
+   "cut@300": 26.1,
+   "cut@600": 13.6,
+   "lat@5pct": 1111,
+   "lat@10pct": 749
+  },
+  "score_point_s": 0.2
  },
  "cartesia_streaming_adapter__ink_2": {
   "general": {
@@ -127,7 +131,8 @@
    "cut@600": null,
    "lat@5pct": 1027,
    "lat@10pct": 968
-  }
+  },
+  "score_point_s": null
  },
  "deepgram_flux_streaming_adapter__flux_general_multi": {
   "general": {
@@ -153,7 +158,8 @@
    "cut@600": 13.5,
    "lat@5pct": 1409,
    "lat@10pct": 826
-  }
+  },
+  "score_point_s": null
  },
  "gradium_streaming_adapter__default": {
   "general": {
@@ -179,59 +185,62 @@
    "cut@600": 23.2,
    "lat@5pct": 1112,
    "lat@10pct": 785
-  }
+  },
+  "score_point_s": null
  },
  "live_kit_turn_detector_adapter__turn_detector_v1.1": {
   "general": {
-   "cut@300": 11.2,
-   "cut@600": 6.0,
-   "lat@5pct": 708,
-   "lat@10pct": 331
+   "cut@300": 7.8,
+   "cut@600": 4.1,
+   "lat@5pct": 462,
+   "lat@10pct": 250
   },
   "accented": {
-   "cut@300": 13.3,
-   "cut@600": 5.8,
-   "lat@5pct": 701,
-   "lat@10pct": 367
+   "cut@300": 12.4,
+   "cut@600": 6.4,
+   "lat@5pct": 700,
+   "lat@10pct": 360
   },
   "short_turns": {
-   "cut@300": 16.0,
-   "cut@600": 9.6,
-   "lat@5pct": 1082,
-   "lat@10pct": 565
+   "cut@300": 19.5,
+   "cut@600": 10.8,
+   "lat@5pct": 1096,
+   "lat@10pct": 635
   },
   "pooled": {
-   "cut@300": 13.5,
-   "cut@600": 7.3,
-   "lat@5pct": 824,
-   "lat@10pct": 417
-  }
+   "cut@300": 13.4,
+   "cut@600": 7.5,
+   "lat@5pct": 810,
+   "lat@10pct": 414
+  },
+  "score_point_s": 0.2
  },
  "live_kit_turn_detector_mini_adapter__86671b0895": {
   "general": {
-   "cut@300": 18.4,
-   "cut@600": 10.1,
-   "lat@5pct": 1030,
-   "lat@10pct": 610
+   "cut@300": 17.7,
+   "cut@600": 8.2,
+   "lat@5pct": 812,
+   "lat@10pct": 504
   },
   "accented": {
-   "cut@300": 26.4,
-   "cut@600": 10.7,
-   "lat@5pct": 1025,
-   "lat@10pct": 681
+   "cut@300": 24.3,
+   "cut@600": 11.2,
+   "lat@5pct": 999,
+   "lat@10pct": 676
   },
   "short_turns": {
-   "cut@300": 32.5,
+   "cut@300": 35.1,
    "cut@600": 17.6,
-   "lat@5pct": 1235,
-   "lat@10pct": 916
+   "lat@5pct": 1237,
+   "lat@10pct": 893
   },
   "pooled": {
-   "cut@300": 26.0,
-   "cut@600": 13.6,
-   "lat@5pct": 1183,
-   "lat@10pct": 776
-  }
+   "cut@300": 25.6,
+   "cut@600": 12.9,
+   "lat@5pct": 1124,
+   "lat@10pct": 738
+  },
+  "score_point_s": 0.2
  },
  "openai_realtime2_adapter__gpt_realtime_2_semantic_vad_auto": {
   "general": {
@@ -257,7 +266,8 @@
    "cut@600": null,
    "lat@5pct": 2000,
    "lat@10pct": 959
-  }
+  },
+  "score_point_s": null
  },
  "p99_lab_turn1_adapter__2d7609c6e7": {
   "general": {
@@ -283,7 +293,8 @@
    "cut@600": 8.7,
    "lat@5pct": 912,
    "lat@10pct": 529
-  }
+  },
+  "score_point_s": null
  },
  "p99_lab_turn1_mini_adapter__e03ca01f20": {
   "general": {
@@ -309,33 +320,35 @@
    "cut@600": 18.7,
    "lat@5pct": 1169,
    "lat@10pct": 862
-  }
+  },
+  "score_point_s": null
  },
  "smart_turn_audio_adapter__cb4f57229a": {
   "general": {
-   "cut@300": 32.8,
-   "cut@600": 14.2,
-   "lat@5pct": 1045,
-   "lat@10pct": 723
+   "cut@300": 35.2,
+   "cut@600": 14.8,
+   "lat@5pct": 1051,
+   "lat@10pct": 739
   },
   "accented": {
-   "cut@300": 48.5,
-   "cut@600": 22.6,
-   "lat@5pct": 1239,
-   "lat@10pct": 924
+   "cut@300": 51.3,
+   "cut@600": 24.3,
+   "lat@5pct": 1224,
+   "lat@10pct": 945
   },
   "short_turns": {
-   "cut@300": 51.7,
-   "cut@600": 26.1,
-   "lat@5pct": 1856,
-   "lat@10pct": 1120
+   "cut@300": 54.8,
+   "cut@600": 27.4,
+   "lat@5pct": 1761,
+   "lat@10pct": 1195
   },
   "pooled": {
-   "cut@300": 44.4,
-   "cut@600": 22.0,
-   "lat@5pct": 1404,
-   "lat@10pct": 932
-  }
+   "cut@300": 46.8,
+   "cut@600": 22.9,
+   "lat@5pct": 1384,
+   "lat@10pct": 956
+  },
+  "score_point_s": 0.2
  },
  "soniox_streaming_adapter__stt_rt_preview": {
   "general": {
@@ -361,33 +374,35 @@
    "cut@600": 13.3,
    "lat@5pct": 2000,
    "lat@10pct": 789
-  }
+  },
+  "score_point_s": null
  },
  "ultra_vad_adapter__920c72c9d9": {
   "general": {
-   "cut@300": 27.5,
-   "cut@600": 12.3,
-   "lat@5pct": 955,
-   "lat@10pct": 664
+   "cut@300": 27.7,
+   "cut@600": 11.9,
+   "lat@5pct": 899,
+   "lat@10pct": 663
   },
   "accented": {
-   "cut@300": 39.9,
-   "cut@600": 20.8,
-   "lat@5pct": 1134,
-   "lat@10pct": 884
+   "cut@300": 40.4,
+   "cut@600": 21.5,
+   "lat@5pct": 1165,
+   "lat@10pct": 904
   },
   "short_turns": {
-   "cut@300": 51.5,
-   "cut@600": 27.9,
-   "lat@5pct": 1862,
-   "lat@10pct": 1209
+   "cut@300": 52.8,
+   "cut@600": 28.7,
+   "lat@5pct": 1876,
+   "lat@10pct": 1152
   },
   "pooled": {
-   "cut@300": 38.9,
-   "cut@600": 20.2,
-   "lat@5pct": 1350,
-   "lat@10pct": 896
-  }
+   "cut@300": 39.7,
+   "cut@600": 20.8,
+   "lat@5pct": 1321,
+   "lat@10pct": 891
+  },
+  "score_point_s": 0.2
  },
  "vap_adapter__d8cef83e57": {
   "general": {
@@ -413,6 +428,7 @@
    "cut@600": 29.0,
    "lat@5pct": 1724,
    "lat@10pct": 1048
-  }
+  },
+  "score_point_s": null
  }
 }

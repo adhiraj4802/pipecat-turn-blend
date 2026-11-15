@@ -1,5 +1,13 @@
 # Changelog
 
+## Correction to the 0.2.0 benchmark page - 2026-11-16
+
+- Correction to the published comparison. The figures for the models that eot-bench scores at a fixed point
+  0.2 s into the silence (LiveKit Turn Detector v1.1 and v1.1-mini, Baton, Smart Turn, ultraVAD) had been
+  computed in the wrong scoring mode. They now match the eot-bench report. For LiveKit v1.1-mini the
+  overall figure changes from 26.0% to 25.6% false cut-offs at 300 ms, accented from 26.4% to 24.3% and
+  short turns from 32.5% to 35.1%. turn-blend's own figures are unchanged. No model or code change.
+
 ## 0.2.0 - 2026-11-15
 
 - New model. Smart Turn v3.2 is replaced by a student model: a Whisper Base encoder trained to reproduce the

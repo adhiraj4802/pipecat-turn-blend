@@ -25,18 +25,19 @@ latency budget, then mean latency at a 5% cut-off budget; lower is better.
 
 | Model | All English | General | Accented | Short turns |
 |---|---:|---:|---:|---:|
-| LiveKit Turn Detector v1.1 | 13.5% / 824 ms | 11.2% / 708 ms | 13.3% / 701 ms | 16.0% / 1082 ms |
+| LiveKit Turn Detector v1.1 | 13.4% / 810 ms | 7.8% / 462 ms | 12.4% / 700 ms | 19.5% / 1096 ms |
 | p99lab turn-1 (GPU) | 19.3% / 912 ms | 10.6% / 553 ms | 19.1% / 878 ms | 28.3% / 1181 ms |
 | **turn-blend 0.2.0 (CPU)** | **23.5% / 995 ms** | **13.0% / 512 ms** | **23.7% / 934 ms** | **36.0% / 1428 ms** |
-| LiveKit Turn Detector v1.1-mini | 26.0% / 1183 ms | 18.4% / 1030 ms | 26.4% / 1025 ms | 32.5% / 1235 ms |
+| LiveKit Turn Detector v1.1-mini | 25.6% / 1124 ms | 17.7% / 812 ms | 24.3% / 999 ms | 35.1% / 1237 ms |
 | turn-blend 0.1.0 | 32.5% / 1114 ms | 19.1% / 722 ms | 34.8% / 1012 ms | 44.1% / 1808 ms |
 | p99lab turn-1-mini | 39.6% / 1169 ms | 22.6% / 849 ms | 38.2% / 1027 ms | 60.7% / 1600 ms |
 
-- turn-blend 0.2.0 makes fewer false cut-offs than LiveKit's v1.1-mini overall and on general and accented
-  speech. It is **behind v1.1-mini on short turns** ("yes", "no thanks"), and behind LiveKit's full v1.1
-  model and turn-1 overall.
-- Rows other than turn-blend are computed from the predictions committed in the eot-bench repository; those
-  models were not re-run here. This is a local run, not a leaderboard submission.
+- turn-blend 0.2.0 makes fewer false cut-offs than LiveKit's v1.1-mini overall and on general speech. On
+  accented speech and on short turns ("yes", "no thanks") the two are level on cut-offs, and on short turns
+  turn-blend is slower. It is behind LiveKit's full v1.1 model and turn-1 overall.
+- Rows other than turn-blend are computed from the predictions committed in the eot-bench repository and
+  match its own report; those models were not re-run here. This is a local run, not a leaderboard
+  submission.
 - The blend weights of 0.2.0 were fitted on separate held-out audio, not on this benchmark. The student
   was trained once, so differences of about a point are within noise.
 

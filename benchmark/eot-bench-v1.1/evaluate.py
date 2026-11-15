@@ -7,6 +7,10 @@ EOT_BENCH_REPO  a clone of https://github.com/livekit/eot-bench (its metrics cod
 SCORES_DIR      output of score.py (data/scores-*.tar.gz unpacked)
 
 A decision point where turn-blend had no open turn counts as probability 0.
+
+Each published model is scored the way the eot-bench report scores it: models that declare a score point in
+their run summary (LiveKit's detectors score once, 0.2 s into the silence) are evaluated at that point, the
+others (turn-blend included) on every prediction. This reproduces the report's own tables.
 """
 import glob
 import json
@@ -30,8 +34,8 @@ COLS = ["id", "language", "span_index", "timestamp", "silence_dur", "label", "p_
 COHORTS = ["general", "accented", "short_turns", "pooled"]
 
 
-def headline(pred):
-    table, summary = compute_metrics_from_predictions(pred)
+def headline(pred, score_point=None):
+    table, summary = compute_metrics_from_predictions(pred, score_point_s=score_point)
     model = table[table.policy_type == "model"]
     out = {}
     for budget in (0.3, 0.6):
@@ -56,17 +60,20 @@ def load(scores_dir):
 results, cohort = {}, {}
 grid = pd.read_parquet(sorted(glob.glob(PUB + "*/predictions.parquet"))[0]).drop(columns="p_eot")
 grid["tr"] = grid.timestamp.round(3)
-preds = {}
+preds, score_points = {}, {}
 for name, d in runs.items():
     scores, cohort = load(d)
     preds[name] = grid.merge(scores, on=["id", "span_index", "tr"])
     assert len(preds[name]) == len(grid), f"{name}: {len(preds[name])} of {len(grid)} decision points"
 for f in sorted(glob.glob(PUB + "*/predictions.parquet")):
-    preds[os.path.basename(os.path.dirname(f))] = pd.read_parquet(f)
+    name = os.path.basename(os.path.dirname(f))
+    preds[name] = pd.read_parquet(f)
+    score_points[name] = json.load(open(os.path.join(os.path.dirname(f), "metrics", "summary.json"))).get("score_point_s")
 for name, pred in preds.items():
     pred = pred.assign(cohort=pred.id.map(cohort))
-    results[name] = {c: headline((pred if c == "pooled" else pred[pred.cohort == c])[COLS]) for c in COHORTS}
+    results[name] = {c: headline((pred if c == "pooled" else pred[pred.cohort == c])[COLS], score_points.get(name)) for c in COHORTS}
+    results[name]["score_point_s"] = score_points.get(name)
     print(f"{name[:60]:60s} " + " | ".join(
-        "{} {}/{}/{}/{}".format(c[:5], *results[name][c].values()) for c in COHORTS))
+        "{} {}/{}/{}/{}".format(c[:5], *results[name][c].values()) for c in COHORTS) + f" | score point {score_points.get(name)}")
 if out_json:
     json.dump(results, open(out_json, "w"), indent=1)
